@@ -1,0 +1,16 @@
+class Solution {
+  List<int> findDisappearedNumbers(List<int> nums) {
+    List<int> ans = [];
+
+    for (final int num in nums) {
+      final int index = num.abs() - 1;
+      nums[index] = -nums[index].abs();
+    }
+
+    for (int i = 0; i < nums.length; ++i)
+      if (nums[i] > 0)
+        ans.add(i + 1);
+
+    return ans;
+  }
+}
