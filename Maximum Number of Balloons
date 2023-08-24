@@ -1,0 +1,17 @@
+class Solution {
+  int maxNumberOfBalloons(String text) {
+    int ans = 2147483647;
+    List<int> count = List.filled(26, 0);
+
+    for (int c in text.codeUnits)
+      ++count[c - 'a'.codeUnitAt(0)];
+
+    for (int c in "ban".codeUnits)
+      ans = ans < count[c - 'a'.codeUnitAt(0)] ? ans : count[c - 'a'.codeUnitAt(0)];
+
+    for (int c in "lo".codeUnits)
+      ans = ans < count[c - 'a'.codeUnitAt(0)] ~/ 2 ? ans : count[c - 'a'.codeUnitAt(0)] ~/ 2;
+
+    return ans;
+  }
+}
