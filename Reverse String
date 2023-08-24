@@ -1,0 +1,16 @@
+class Solution {
+  void reverseString(List<String> s) {
+    //ltr: left to right
+    int ltr = 0;
+    //rtl: right to left
+    int rtl = s.length - 1;
+    //["h","e","l","l","o"]
+    while (ltr < rtl) {
+      String temp = s[ltr];
+      s[ltr] = s[rtl];
+      s[rtl] = temp;
+      ltr++;
+      rtl--;
+    }
+  }
+}
