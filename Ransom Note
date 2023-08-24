@@ -1,0 +1,17 @@
+class Solution {
+  bool canConstruct(String ransomNote, String magazine) {
+    List<int> count = List<int>.filled(128, 0);
+
+    for (var c in magazine.runes) {
+      count[c]++;
+    }
+
+    for (var c in ransomNote.runes) {
+      if (--count[c] < 0) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+}
